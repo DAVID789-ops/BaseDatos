@@ -35,9 +35,30 @@ from PlanInternet
 
 --ejercicio 2.9
 --a.
-select *
-from cliente
+select codcliente as CODIGO, tipo_cliente as [tipo cliente], nombres as NOMBRES, ape_materno+' '+ape_paterno AS APELLIDOS,codzona AS ZONA, ESTADO AS ESTADO
+from Cliente
+WHEre tipo_cliente='p' and codzona=1 and estado=1
+order by codcliente asc
 
+--b
+select codcliente as CODIGO, tipo_cliente as [tipo cliente], email as EMAIL, direccion AS DIRECCIÓN, CODZONA AS ZONA, ESTADO AS ESTADO
+from Cliente
+WHEre tipo_cliente='E' OR codzona=10 OR estado=0
+order by direccion DESC
+
+--C
+select codcliente as CODIGO, tipo_cliente as [tipo cliente], nombres as NOMBRES, ape_materno+' '+ape_paterno AS APELLIDOS,codzona AS ZONA, ESTADO AS ESTADO
+from Cliente
+WHEre tipo_cliente='p' and codzona=1 and estado=1
+order by NOMBRES asc, ape_paterno DESC
+
+ --D
+select tipo_cliente as [tipo cliente], email as EMAIL, direccion AS DIRECCIÓN, CODZONA AS ZONA, ESTADO AS ESTADO
+from Cliente
+WHEre tipo_cliente='E' OR codzona=10 OR estado=0
+order by EMAIL ASC
+
+--EJERCICIO 2.11
 
 
 --select
