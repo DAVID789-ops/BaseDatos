@@ -13,13 +13,58 @@ select 'tn'
 
 select power(@t1,2)--para colocar un numero aleatorio
 --tarea
---ejercicio 1
+--ejercicio 2.2
 
 declare @x int=5, @y int=10, @z int=15
 select 'F (X, Y, Z) =X2+5XY+Y2+Z'=power(@x,2)+(5*@x*@y)+power(@y,2)+@z
+
+--ejercicio 2.5
+select codubigeo as ubigeo, nom_dpto as DPTO, nom_prov as PROV, nom_dto AS dto,
+case when nom_prov='huaura' then 'provincia de huaura'
+else 'otra provincia'
+end as [mensaje]
+from ubigeo
+
+--ejercicio 2.7
+select nombre as [PLAN], precioref as PRECIO_sol, cast(round(precioref/3.948,2) as decimal(9,2)) as PRECIO_DOL,
+CASE WHEN cast(round(precioref/3.948,2) as decimal(9,2))>=0 AND cast(round(precioref/3.948,2) as decimal(9,2))<=20 THEN '[0,20'
+     WHEN cast(round(precioref/3.948,2) as decimal(9,2))>=20  AND cast(round(precioref/3.948,2) as decimal(9,2))<27 THEN '[20,27'
+	 WHEN cast(round(precioref/3.948,2) as decimal(9,2))>=27 THEN '[27,+>'
+END AS 'RANGO_DOL'
+from PlanInternet
+
 
 --select
 -- ¿cuales son los ubigeos que tienen nombre huaura?
 SELECT nom_dpto,nom_prov,nom_dto
 from Ubigeo
 where nom_dpto='LIMA' and nom_prov='HUAURA'
+
+SELECT distinct nom_dpto
+from Ubigeo
+
+SELECT nom_dpto
+from Ubigeo
+
+--2.3
+--b 
+select distinct codubigeo
+from Zona
+
+--c.
+select distinct nom_dpto+' '+nom_prov [DONDE]
+from ubigeo
+
+select nombre as Zona, codubigeo as [codigo ubigeo], estado as ESTADO,
+Case when estado=1 then 'zona activa'
+else 'zon inactiva'
+end as [mensaje estado]
+From zona
+where codubigeo=1
+
+
+
+
+
+
+
