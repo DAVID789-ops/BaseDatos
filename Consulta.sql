@@ -33,6 +33,12 @@ CASE WHEN cast(round(precioref/3.948,2) as decimal(9,2))>=0 AND cast(round(preci
 END AS 'RANGO_DOL'
 from PlanInternet
 
+--ejercicio 2.9
+--a.
+select *
+from cliente
+
+
 
 --select
 -- ¿cuales son los ubigeos que tienen nombre huaura?
